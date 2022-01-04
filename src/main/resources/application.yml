@@ -1,0 +1,16 @@
+spring:
+  main.allow-bean-definition-overriding: true
+  application:
+    name: social-media
+  datasource:
+    url: jdbc:postgresql://localhost:${DB_PORT:5432}/socme
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+  flyway:
+    placeholders:
+      dbuser: ${spring.datasource.username}
+    #    enabled: false
+    url: jdbc:postgresql://localhost:${DB_PORT:5432}/socme
+    schemas: public
+    user: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
