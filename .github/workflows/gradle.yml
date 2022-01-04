@@ -17,6 +17,15 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: socme
+        ports:
+          - 3306:3306
 
     steps:
     - uses: actions/checkout@v2
@@ -25,11 +34,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: up docker container runs
-      run: docker-compose up -d
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
     - name: Build with Gradle
       uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
       with:
-        arguments: build
+        arguments: build 
