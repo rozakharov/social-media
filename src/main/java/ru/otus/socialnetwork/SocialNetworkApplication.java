@@ -1,13 +1,13 @@
-package ru.otus.socialmedia;
+package ru.otus.socialnetwork;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SocialMediaApplication {
+public class SocialNetworkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SocialMediaApplication.class, args);
+        SpringApplication.run(SocialNetworkApplication.class, args);
     }
 
 }

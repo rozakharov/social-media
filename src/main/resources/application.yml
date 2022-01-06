@@ -1,16 +1,18 @@
+logging:
+  level:
+    ROOT: INFO
+
 spring:
   main.allow-bean-definition-overriding: true
   application:
-    name: social-media
+    name: social-network
   datasource:
-    url: jdbc:mysql://localhost:${DB_PORT:3306}/socme
+    url: jdbc:mysql://localhost:${DB_PORT:3306}/sone?autoreconnect=true
     username: ${DB_USER:root}
     password: ${DB_PASS:mysql}
   flyway:
-    placeholders:
-      dbuser: ${spring.datasource.username}
-    #    enabled: false
-    url: jdbc:mysql://localhost:${DB_PORT:3306}/socme
-    schemas: public
+    enabled: false
+    url: jdbc:mysql://localhost:${DB_PORT:3306}/sone
+    schemas: sone
     user: ${DB_USER:root}
     password: ${DB_PASS:mysql}

@@ -1,10 +1,10 @@
-package ru.otus.socialmedia;
+package ru.otus.socialnetwork;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SocialMediaApplicationTests {
+class SocialNetworkApplicationTests {
 
     @Test
     void contextLoads() {
