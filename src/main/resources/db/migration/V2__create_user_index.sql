@@ -1,0 +1,1 @@
+CREATE INDEX user_firstname_lastname_idx on user (first_name, last_name);

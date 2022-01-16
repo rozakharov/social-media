@@ -14,3 +14,7 @@ spring:
     url: jdbc:${DB_URL:mysql://localhost:3306/sone}
     user: ${DB_USER:root}
     password: ${DB_PASS:mysql}
+
+application:
+  generate-users:
+    count: 1000000

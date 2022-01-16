@@ -23,8 +23,8 @@ public class UserService {
     return dao.save(user);
   }
 
-  public List<User> getUsers() {
-    return dao.findAll();
+  public List<User> getUsers(String firstName, String lastName) {
+    return dao.findAll(firstName, lastName);
   }
 
   public User getUser(Long id) {

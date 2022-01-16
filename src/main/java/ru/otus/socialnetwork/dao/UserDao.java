@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.otus.socialnetwork.dto.User;
 
 import java.sql.PreparedStatement;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 @Transactional
@@ -45,8 +47,9 @@ public class UserDao {
     );
   }
 
-  public List<User> findAll() {
-    return jdbcTemplate.query("SELECT * FROM user", userMapper);
+  public List<User> findAll(String firstName, String lastName) {
+    return jdbcTemplate.query("SELECT * FROM user WHERE first_name LIKE ? AND last_name LIKE ? ORDER BY id", userMapper,
+        firstName + "%", lastName + "%");
   }
 
   public Optional<User> findById(Long id) {

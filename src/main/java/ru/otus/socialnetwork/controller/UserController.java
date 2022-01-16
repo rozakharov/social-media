@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.otus.socialnetwork.dto.User;
 import ru.otus.socialnetwork.security.MyUserDetails;
 import ru.otus.socialnetwork.service.UserService;
@@ -20,8 +17,16 @@ public class UserController {
   private final UserService userService;
 
   @GetMapping
-  public String listUsers(Model model) {
-    model.addAttribute("listUsers", userService.getUsers());
+  public String listUsers() {
+    return "users";
+  }
+
+  @GetMapping("search")
+  public String search(
+      @RequestParam String firstName,
+      @RequestParam String lastName,
+      Model model) {
+    model.addAttribute("listUsers", userService.getUsers(firstName, lastName));
     return "users";
   }
 
